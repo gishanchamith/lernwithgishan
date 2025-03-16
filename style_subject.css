@@ -350,14 +350,18 @@ footer {
     background-color: #004d40;
 }
 
-/* Footer Section */
+/* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
     text-align: center;
-    padding: 1rem;
-    font-size: 1rem;
+    padding: 15px;
+    background: #111827;
+    color: white;
+    font-family: 'Noto Sans Sinhala', sans-serif;
+    margin-top: 30px;
+    font-size: 1.25vw;
 }
+
+
 
 footer p {
     margin: 0;
