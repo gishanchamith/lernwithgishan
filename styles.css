@@ -20,7 +20,9 @@ nav {
 nav .logo {
     font-size: 26px;
     font-weight: bold;
-    color: white;
+    background: linear-gradient(45deg, #FFD700, #F59E0B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: inline-block;
 }
 .nav-links {
@@ -140,7 +142,7 @@ nav .logo {
 }
 
 .hero-text h1 {
-    font-size: 28px;
+    font-size: 5vw;
     color: white;
 }
 
@@ -271,7 +273,7 @@ nav .logo {
     overflow: hidden;
     object-fit: cover;
     object-position: center;
-    background-color: #031461;
+    background-color: #ffffff;
 }
 
 .portfolio-section h2{
@@ -302,6 +304,13 @@ nav .logo {
 
 .portfolio-btn:hover {
     background: #00408a;
+}
+
+.photo img{
+    width: 500px;;
+    max-width: 100vw;
+    height: fit-content;
+    
 }
 
 @media screen and (max-width: 768px){
@@ -362,7 +371,7 @@ footer p {
 
 /* Individual Subject Category Card */
 .subject-category {
-    background:linear-gradient( #0ce9e96c, #f53a0b6e);
+    background:linear-gradient( #ffd9006c, #f59f0b6e);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -429,4 +438,11 @@ html {
     .subject-categories {
         grid-template-columns: 1fr; /* One column on mobile devices */
     }
+}
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 50px;
+    }
+
+
 }

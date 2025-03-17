@@ -85,7 +85,8 @@ html {
 }
 
 .hero-text h1 {
-    font-size: 28px;
+    font-size: 5vw;
+    font-weight:bolder;
     color: white;
 }
 
@@ -276,6 +277,17 @@ footer {
     .subject-categories {
         grid-template-columns: 1fr; /* One column on mobile devices */
     }
+}
+
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 50px;
+    }
+    .hero-image {
+        width: 50vw;
+        height: fit-content;
+    }
+
 }
 
 /* PDF Links Section */
