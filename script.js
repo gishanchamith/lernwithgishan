@@ -25,6 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function toggleMenu() {
+    let menu = document.querySelector('.nav-links');
+    if (menu.classList.contains('active')) {
+        menu.style.maxHeight = '0';
+        setTimeout(() => menu.classList.remove('active'), 300);
+    } else {
+        menu.classList.add('active');
+        menu.style.maxHeight = '500px';
+    }
+}
 
 function searchContent() {
     let query = document.getElementById("searchBar").value.toLowerCase();
