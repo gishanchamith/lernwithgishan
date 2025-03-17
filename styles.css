@@ -337,7 +337,16 @@ footer {
     color: white;
     font-family: 'Noto Sans Sinhala', sans-serif;
     margin-top: 30px;
+    font-size: 1.25vw;
 }
+
+
+
+footer p {
+    margin: 0;
+}
+
+
 
 /* Subject Categories Section */
 .subject-categories {
