@@ -1,0 +1,632 @@
+/* Spinner Loader */
+.spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    width: 80px;
+    height: 80px;
+    border: 10px solid #40c9ff;
+    border-top: 10px solid #e81cff;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+  }
+
+
+/* Global */
+body {
+    background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    color: white;
+    }
+    
+    /* Header */
+    header {
+    display: flex;
+    flex-direction: column;
+    justify-content:right;
+    padding: 1rem 2rem;
+    background-color: #111;
+    color: white;
+    }
+    
+/* Ensure nav content stacks vertically */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* space between logo and navbar */
+  }
+  
+  /* Group logo and live-time side by side */
+  .navbar-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  
+  /* Adjust logo style */
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6ec4;
+  }
+  
+
+  
+    .top-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem; /* space between image and text */
+        flex-wrap: wrap; /* makes it responsive on smaller screens */
+        margin: 1rem 0;
+        text-align: center;
+      }
+      
+    .logo-img {
+        height: auto; /* adjust as needed */
+        width: 19vw;
+      }
+      
+    .topText {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+      }
+      
+      
+    
+    /* Navigation - Pill Style */
+    .pill-radio-container {
+    --main-color: #ff6ec4;
+    --secondary-color: #7873f5;
+    --text-color: #ddd;
+    --pill-bg: #1a1a1a;
+    --total-options: 5;
+    
+    display: flex;
+    position: relative;
+    background: var(--pill-bg);
+    border-radius: 3rem;
+    padding: 0.5rem;
+    gap: 1rem;
+    box-shadow: 0 0 20px #000 inset;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    }
+    
+    .pill-radio-container input {
+    display: none;
+    }
+    
+    .pill-radio-container label {
+    position: relative;
+    padding: 0.6rem 1.5rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out;
+    z-index: 2;
+    }
+    
+    .pill-radio-container input:checked + label {
+    color: #fff;
+    }
+    
+    .pill-radio-container label:hover {
+    color: var(--main-color);
+    }
+    
+    
+    .pill-indicator {
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        height: 4px;
+        width: calc(100% / var(--total-options));
+        background: linear-gradient(to right, var(--main-color), var(--secondary-color));
+        border-radius: 2px;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1;
+        }
+    
+    #nav-home:checked ~ .pill-indicator { transform: translateX(0%); }
+    #nav-al1:checked ~ .pill-indicator { transform: translateX(100%); }
+    #nav-al2:checked ~ .pill-indicator { transform: translateX(200%); }
+    #nav-papers:checked ~ .pill-indicator { transform: translateX(300%); }
+    #nav-about:checked ~ .pill-indicator { transform: translateX(400%); }
+    
+    /* Intro Text */
+    .topText {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    }
+    
+    /* Rotating Card Carousel */
+    .wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    }
+    
+    .inner {
+    --w: 190px;
+    --h: 254px;
+    --translateZ: calc((var(--w) + var(--h)) + 30px);
+    --rotateX: -15deg;
+    --perspective: 1000px;
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    top: 40%;
+    left: calc(50% - (var(--w) / 2));
+    z-index: 2;
+    transform-style: preserve-3d;
+    transform: perspective(var(--perspective));
+    animation: rotating 20s linear infinite;
+    }
+    
+    @keyframes rotating {
+    from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+    }
+    to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn);
+    }
+    }
+    
+    .card {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
+    translateZ(var(--translateZ));
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    width: 190px;
+    height: 254px;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    background: rgba(var(--color-card), 0.15);
+    }
+    
+    .card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 130%;
+    background-image: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+    }
+    
+    @keyframes rotBGimg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+    }
+    
+    .card::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    border-radius: 25px;
+    z-index: 1;
+    }
+    
+    .img {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: radial-gradient(
+    circle,
+    rgba(var(--color-card), 0.2) 0%,
+    rgba(var(--color-card), 0.6) 80%,
+    rgba(var(--color-card), 0.9) 100%
+    );
+    }
+    
+    /* Teacher Profile Section */
+ 
+/* Teacher Card Section */
+.teacher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  gap: 1.5rem;
+  transition: transform 0.3s ease;
+  color: white;
+  text-align: center;
+
+}
+
+.teacher-card:hover {
+  transform: scale(1.02);
+}
+
+/* Teacher Photo */
+.teacher-photo img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ff6ec4;
+  box-shadow: 0 0 20px rgba(255, 110, 196, 0.4);
+}
+
+/* Button for whatsapp */ 
+.button {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .button:hover::after {
+    filter: blur(30px);
+  }
+  
+  .button:hover::before {
+    transform: rotate(-180deg);
+  }
+  
+  .button:active::before {
+    scale: 0.7;
+  }
+  
+  
+/* footer */
+
+footer {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #ddd;
+    font-size: 1rem;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    margin-top: 3rem;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  footer p {
+    margin: 0;
+    line-height: 1.8;
+    background: linear-gradient(45deg, #e81cff, #40c9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+
+/*line*/
+.line {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #ff6ec4, #7873f5); /* match your theme */
+    
+}
+
+/* Add this to style the time in the navbar */
+#live-time {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem;
+    z-index: 1000; /* Make sure it stays on top */
+}
+/* Adjust positioning of the time if needed */
+nav {
+    display: flex;
+    justify-content: space-between; /* This helps with spacing out the elements */
+    align-items: center;
+}
+
+
+  .subjectCard {
+    width: 190px;
+    height: 254px;
+    background: #07182E;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Text inside the card */
+  .subjectCard h2 {
+    z-index: 1;
+    color: white;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    pointer-events: none;
+  }
+  
+  /* Animated gradient border */
+  .subjectCard::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 130%;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+    z-index: 0;
+  }
+  
+  /* Inner dark overlay (the "frame") */
+  .subjectCard::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 15px;
+    background: #07182E;
+    z-index: 0;
+    transition: filter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+
+  
+  /* Animation keyframes for rotating gradient */
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* === CLICK / ACTIVE STATE === */
+  .subjectCard:active::after {
+    filter: blur(25px);
+    transform: scale(0.95);
+  }
+  
+  .subjectCard:active {
+    transform: scale(0.97);
+  }
+  
+
+
+
+  .hero {
+    padding: 40px 20px;
+    background: #0e0e1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-content {
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .wrapper {
+      height: auto;
+      padding: 2rem 1rem;
+    }
+  
+    .inner {
+      animation: none;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      top: unset;
+      left: unset;
+      transform: none;
+      width: 100%;
+      height: auto;
+    }
+  
+    .card {
+      position: relative;
+      transform: none !important;
+      width: 150px;
+      height: 200px;
+      margin: 1rem;
+    }
+  
+    .card::before,
+    .card::after {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pill-radio-container {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1rem;
+    }
+  
+    .pill-radio-container label {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .logo-img {
+      width: 60%;
+    }
+  
+    .topText {
+      font-size: 1rem;
+    }
+  
+    .teacher-card {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  
+    .teacher-photo img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 1.2rem;
+      margin-left: 0;
+      justify-content: center;
+    }
+  
+    .topText {
+      font-size: 0.9rem;
+    }
+  
+    .button {
+      width: 100px;
+      height: 36px;
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .inner {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 1rem;
+      transform: none;
+      animation: none;
+      width: 100%;
+      height: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+  
+    .card {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      width: 180px;
+      height: 240px;
+      margin: 0 auto;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #fc00ff 0%, #00dbde 100%);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+  
+    .card::before,
+    .card::after {
+      display: none;
+    }
+  }
+  
