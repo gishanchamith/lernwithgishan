@@ -21,6 +21,17 @@
     animation: spin 1.5s linear infinite;
   }
 
+  /* logo header*/
+  .main-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+}
+
+.logo-img {
+  height: 60px;
+}
 
 /* Global */
 body {
