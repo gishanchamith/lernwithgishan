@@ -1,11 +1,10 @@
 {
   "name": "Learn with Gishan",
-  "short_name": "LearnGishan",
-  "start_url": "/index.html",
+  "short_name": "Learn",
+  "start_url": "/lernwithgishan/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#004aad",
-  "description": "A learning platform for O/L and A/L students in Sri Lanka.",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "icon-192.png",
@@ -19,3 +18,4 @@
     }
   ]
 }
+
