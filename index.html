@@ -90,5 +90,21 @@
       &copy; 2025 Learn with Gishan. සියලුම හිමිකම් ඇවිරිණි.
     </p>
   </footer>
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("sw.js")  // 👈 Change this path if needed
+        .then((reg) => {
+          console.log("✅ Service Worker registered!", reg);
+        })
+        .catch((err) => {
+          console.error("❌ Service Worker registration failed:", err);
+        });
+    });
+  }
+</script>
+
 </body>
 </html>
