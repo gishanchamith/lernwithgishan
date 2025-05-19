@@ -1,7 +1,7 @@
 {
   "name": "Learn with Gishan",
   "short_name": "Learn",
-  "start_url": "./lernwithgishan/",
+  "start_url": "https://gishanchamith.github.io/lernwithgishan/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
