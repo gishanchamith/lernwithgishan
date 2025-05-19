@@ -7,7 +7,10 @@ self.addEventListener('install', event => {
         '/new.css',
         '/icon-192.png',
         '/icon-512.png',
-        ,'/new.js'
+        '/new.js',
+        '/new.css',
+'/manifest.json',
+
         // Add more pages if you want
       ]);
     })
