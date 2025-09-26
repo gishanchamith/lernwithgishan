@@ -1,110 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Learn with Gishan</title>
+  <meta name="description" content="අපොස සාමාන්‍ය හා උසස් පෙළ භෞතික විද්‍යා අධ්‍යාපනය සඳහා Learn with Gishan භාවිතා කරන්න." />
   <link rel="icon" href="icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="new.css" />
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#004aad" />
-
+  <link rel="stylesheet" href="home.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0d1b2a" />
   <script src="new.js" defer></script>
 </head>
-<body>
-    <div class="spinner-container">
-        <div class="spinner">
-            <div class="spinner1"></div>
-        </div>
-    </div>
+<body class="home">
+  <div class="spinner-container" aria-hidden="true">
+    <div class="spinner" role="status" aria-label="Loading"></div>
+  </div>
 
-  <header>
-    <div id="live-time"></div> 
-    <nav>
-    
-    <div class="logo">Learn with Gishan</div> 
-      <div class="pill-radio-container">
-        <input checked name="nav" id="nav-home" type="radio" />
-        <label for="nav-home" data-link="index.html">මුල් පිටුව</label>
-        <input name="nav" id="nav-al1" type="radio" />
-        <label for="nav-al1" data-link="ol.html">සාමාන්‍ය පෙළ</label>
-        <input name="nav" id="nav-al2" type="radio" />
-        <label for="nav-al2" data-link="al.html">උසස් පෙළ</label>
-        <input name="nav" id="nav-papers" type="radio" />
-        <label for="nav-papers" data-link="pastpapers.html">පැරණි විභාග ප්‍රශ්න පත්‍ර</label>
-        <input name="nav" id="nav-about" type="radio" />
-        <label for="nav-about" data-link="https://gishanchamith.github.io/gishan-portfolio/index.html">අපි ගැන</label>
-   
-        <div class="pill-indicator"></div>
-      </div>     
-      
+  <header class="home-header">
+    <div class="home-header__inner">
+      <div class="home-brand">
+        <img src="icon-192.png" alt="Learn with Gishan" class="home-brand__mark" />
+        <div class="home-brand__text">
+          <span class="home-brand__title">Learn with Gishan</span>
+          <span class="home-brand__subtitle">Engineering Dreams. Physics Mastery.</span>
+        </div>
+      </div>
+      <div class="home-header__meta">
+        <span id="live-time" class="home-live-time" aria-live="polite"></span>
+        <a class="home-header__cta" href="https://chat.whatsapp.com/CFzLnCQMCTSDr3eJ7PiNVx" target="_blank" rel="noopener">WhatsApp Community</a>
+      </div>
+    </div>
+    <nav class="home-nav" aria-label="Primary">
+      <a class="home-nav__link" href="index.html" data-page="index.html">මුල් පිටුව</a>
+      <a class="home-nav__link" href="ol.html" data-page="ol.html">සාමාන්‍ය පෙළ</a>
+      <a class="home-nav__link" href="al.html" data-page="al.html">උසස් පෙළ</a>
+      <a class="home-nav__link" href="pastpapers.html" data-page="pastpapers.html">පැරණි ප්‍රශ්න පත්‍ර</a>
+      <a class="home-nav__link" href="https://gishanchamith.github.io/gishan-portfolio/index.html" target="_blank" rel="noopener">අපි ගැන</a>
     </nav>
   </header>
 
-  <hr class="line">
+  <main class="home-main">
+    <section class="home-hero">
+      <div class="home-hero__content">
+        <p class="home-hero__eyebrow">කෑගල්ල සියෝවින් - භෞතික විද්‍යා විශේෂ උපාය මාර්ග</p>
+        <h1 class="home-hero__title">ඔබගේ ඉන්ජිනේරු සිහිනය සත්‍ය කරගන්න.<br />අදම අනාගතය ගොඩනඟන්න.</h1>
+        <p class="home-hero__description">භෞතික විද්‍යාව පමණක් නොව, ලෝකය බැලීමේ රටාව වෙනස් කරන ඉගෙනුම් අත්දැකීමක්. මනෝදවුලෙන්, ක්‍රමෝපාය කරුණාවෙන් සමන්විත පංති මඟින් ඔබව උසස් පෙළ හා ඉදිරි අධ්‍යාපනයට සූදානම් කරමු.</p>
+        <div class="home-hero__actions">
+          <a class="home-button home-button--primary" href="ol.html">සාමාන්‍ය පෙළ පාඨමාලා</a>
+          <a class="home-button home-button--ghost" href="al.html">උසස් පෙළ විශේෂ වැඩසටහන්</a>
+        </div>
+      </div>
+      <div class="home-hero__visual" aria-hidden="true">
+        <div class="home-hero__image-frame">
+          <img src="image.png" alt="" />
+        </div>
+      </div>
+    </section>
 
-  <div class="top-banner">
-    <img src="image.png" alt="Logo" class="logo-img" />
-    <div class="topText">
-      ඔබගේ ඉන්ජිනේරු වෛද්‍ය සිහින සැබෑ කරගන්න එන්නම ඕනෙ තැන,<br>
-      ඔබේ අනාගතය අදම ගොඩනඟන්න!
-    </div>
-  </div>
+    <section class="home-features" aria-labelledby="features-title">
+      <div class="home-section-heading">
+        <h2 id="features-title">භෞතික විද්‍යා අධ්‍යාපනයට නව මට්ටමක්</h2>
+        <p>අධ්‍යාපනය කෙරේ යාවත්කාලීන මාර්ගෝපදේශ, අන්තර්ක්‍රියාත්මක පිනිස සහ නිරන්තර උපකාර.</p>
+      </div>
+      <div class="home-feature-grid">
+        <article class="home-feature-card">
+          <h3>අදහස් සැලසුම්</h3>
+          <p>සංකීර්ණ සංකල්ප සරල කරමින්, පියවරෙන් පියවර වටහා ගැනීමට නවීන විවිධ උදාහරණ.</p>
+        </article>
+        <article class="home-feature-card">
+          <h3>සජීව practically</h3>
+          <p>ප්‍රායෝගික සැලසුම් හා පුනරීක්ෂණ පරීක්ෂණ මඟින් ඔබේ අවබෝධය ගැඹුරු කරමු.</p>
+        </article>
+        <article class="home-feature-card">
+          <h3>Past Paper Mastery</h3>
+          <p>පසුගිය විභාග ප්‍රශ්න පත්‍ර සවිස්තාරයෙන් විග්‍රහ කරමින්, ඔබට විශ්වාසයෙන් පිළිතුරු සකසන හැකියාව.</p>
+        </article>
+        <article class="home-feature-card">
+          <h3>දිනපතා උපකාර</h3>
+          <p>WhatsApp හා ඊ-ලෑස් විවේක පඬු මගින් දිගු පථයේදී ඔබ එක්ක නැවත නැවත සබඳවී සිටීම.</p>
+        </article>
+      </div>
+    </section>
 
-  <hr class="line">
+    <section class="home-resources" aria-labelledby="resources-title">
+      <div class="home-section-heading">
+        <h2 id="resources-title">ඔබට සුදුසු පාඩම් මාර්ගය තෝරන්න</h2>
+        <p>නිතර යාවත්කාලීන කරන සම්පත් හා පාඩම් රටාවන් සිසුන්ගේ අවශ්‍යතාවයන්ට සංවර්ධනය කර ඇත.</p>
+      </div>
+      <div class="home-resource-grid">
+        <a class="home-resource-card" href="ol.html">
+          <span class="home-resource-card__tag">OL Stream</span>
+          <h3>සාමාන්‍ය පෙළ සම්පූර්ණ වැඩසටහන්</h3>
+          <p>9-11 ශ්‍රේණි සිසුන් සඳහා විෂය ගබඩාව, ප්‍රායෝගික සහ පසුගිය ප්‍රශ්න.</p>
+        </a>
+        <a class="home-resource-card" href="al.html">
+          <span class="home-resource-card__tag">AL Physics</span>
+          <h3>උසස් පෙළ භෞතික විද්‍යා විශේෂය</h3>
+          <p>භෞතික විද්‍යාව සදහා සම්පූර්ණ උසස් පෙළ පාඨමාලාව හා විභාග උපාය.</p>
+        </a>
+        <a class="home-resource-card" href="pastpapers.html">
+          <span class="home-resource-card__tag">Revision</span>
+          <h3>පසුගිය ප්‍රශ්න හා විග්‍රහ</h3>
+          <p>පසුගිය පොදු හා විශේෂ ප්‍රශ්න පත්‍ර සදහා සවිස්තරාත්මක විසඳුම් සහ විස්තර.</p>
+        </a>
+      </div>
+    </section>
 
-  <div class="wrapper">
-    <div class="inner" style="--quantity: 6;">
-      <a class="card" href="index.html" style="--index: 0; --color-card: 142, 249, 252;"><div class="img">මුල් පිටුව</div></a>
-      <a class="card" href="al.html" style="--index: 1; --color-card: 142, 252, 204;"><div class="img">උසස් පෙළ</div></a>
-      <a class="card" href="papers.html" style="--index: 2; --color-card: 252, 208, 142;"><div class="img">පැරණි විභාග ප්‍රශ්න පත්‍ර</div></a>
-      <a class="card" href="https://gishanchamith.github.io/gishan-portfolio/index.html" style="--index: 3; --color-card: 252, 142, 239;"><div class="img">අපි ගැන</div></a>
-      <a class="card" href="ol.html" style="--index: 4; --color-card: 252, 20, 23;"><div class="img">සාමාන්‍ය පෙළ</div></a>
-      <a class="card" href="papers.html" style="--index: 5; --color-card: 2, 208, 142;"><div class="img">ප්‍රශ්න පත්‍ර</div></a>
-    </div>
-  </div>
+    <section class="home-mentor" aria-labelledby="mentor-title">
+      <div class="home-mentor__image">
+        <img src="IMG_1595_1[1].jpeg" alt="ගිෂාන් චමිත් බණ්ඩාර" />
+      </div>
+      <div class="home-mentor__content">
+        <h2 id="mentor-title">ගුරුවරයා ගැන</h2>
+        <p>මම ගිෂාන් චමිත් බණ්ඩාර. අපොස සාමාන්‍ය පෙළ විශිෂ්ට සාමාර්ථ 9ක් සහ, උසස් පෙළ භෞතික විද්‍යා විෂය ධාරාවේදි කෑගල්ල දිස්ත්‍රික්කයේ 3 වන ස්ථානය, දිවයිනේ 65 වන ස්ථානය දිනාගෙන සිටිනවා. දැනට මොරටුව විශ්වවිද්‍යාලයේ ඉන්ජිනේරු පීඨයේ පරිගණක විද්‍යා හා ඉන්ජිනේරු උපාධිය හදාරන අතර, කෑගල්ල සියෝවින් ආයතනයේ භෞතික විද්‍යා පන්ති සංවිධානය කරමි.</p>
+        <p>අදහස් ප්‍රශ්න, පුනරීක්ෂණ, හා ඉදිරියට යාමට අවශ්‍ය වූ උපදෙස් සදහා අපේ WhatsApp සමාජයට එකතු වී සම්බන්ධව සිටින්න.</p>
+        <a class="home-button home-button--primary" href="https://chat.whatsapp.com/CFzLnCQMCTSDr3eJ7PiNVx" target="_blank" rel="noopener">WhatsApp සමූහයට එක්වන්න</a>
+      </div>
+    </section>
 
-  <hr class="line">
+    <section class="home-cta" aria-labelledby="cta-title">
+      <div class="home-cta__inner">
+        <h2 id="cta-title">Practical භෞතික විද්‍යාව ඉගෙන ගන්න, විශ්වාසයෙන් විභාගයට පිවිසින්න</h2>
+        <p>අදම Learn with Gishan සමඟ ඔබගේ ඉගෙනුම අලුත් අයුරකින් ආරම්භ කරන්න. විශේෂ විභාග පුහුණුව, පුනරීක්ෂණ හා පුද්ගලික උපදේශනය සමඟ.</p>
+        <div class="home-cta__actions">
+          <a class="home-button home-button--ghost" href="ol.html">Stream එක තෝරන්න</a>
+          <a class="home-button home-button--primary" href="https://chat.whatsapp.com/CFzLnCQMCTSDr3eJ7PiNVx" target="_blank" rel="noopener">WhatsApp සමඟ සම්බන්ධවන්න</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  
-
-  <div class="teacher-card">
-    <div class="teacher-photo">
-      <img src="IMG_1595_1[1].jpeg" alt="Gishan Chamith" />
-    </div>
-    <h1>ගුරුවරයා</h1>
-    <p>මම ගිෂාන් චමිත් බණ්ඩාර. අපොස සාමන්‍ය පෙළ විශිෂ්ඨ සාමාර්ත 9ක් ලබාගෙන අපොස උසස් පෙළ
-        විභාගය සදහා භෞතික විද්‍යා විශය ධාරාවෙන් පෙනී සිට කෑගල්ල දිස්ත්‍රික්කයේ 3 වන ස්තානය හා දිවයිනේ 65 වන ස්ථානය ලබා දැනට මොරටුව විශ්වවිද්‍යාලයේ ඉන්ජිනේරු පිඨයේ පරිගණක විද්‍යා හා ඉන්ජිනේරු උපාදිය හදාරමින් සිටිනවා. 
-        භෞතික විද්‍යාවට ඇති කැමැත්ත නිසාම කෑගල්ල සියෝවින් ආයතනයේ භෞතික විද්‍යා කණ්ඩායම් පන්ති සිදු කරනවා. අපේ පංති ගැන දැන ගන්න පහත වට්සැප් සමූහයට එක් වෙන්න.</p>
-    <a href="https://chat.whatsapp.com/CFzLnCQMCTSDr3eJ7PiNVx" target="_blank">
-      <button class="button">WhatsApp</button>
-    </a>
-  </div>
-
-  <hr class="line">
-
-  <footer>
-    <p>
-      Practical Subject එක Practically ඉගෙන ගන්න එන්න.<br>
-      Physics --> Gishan C Bandara | භෞතික විද්‍යාව --> ගිෂාන් C බණ්ඩාර<br>
-      &copy; 2025 Learn with Gishan. සියලුම හිමිකම් ඇවිරිණි.
-    </p>
+  <footer class="home-footer">
+    <p>Practical Subject එක Practically ඉගෙන ගන්න එන්න.<br />Physics → Gishan C Bandara | භෞතික විද්‍යාව → ගිෂාන් C බණ්ඩාර<br />&copy; 2025 Learn with Gishan. සියලුම හිමිකම් ඇවිරිණි.</p>
   </footer>
-
-  <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("sw.js")  // 👈 Change this path if needed
-        .then((reg) => {
-          console.log("✅ Service Worker registered!", reg);
-        })
-        .catch((err) => {
-          console.error("❌ Service Worker registration failed:", err);
-        });
-    });
-  }
-</script>
-
 </body>
 </html>

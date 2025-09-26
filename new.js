@@ -1,79 +1,91 @@
+// Service worker registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => {
-        console.log('✅ Service Worker registered!', reg);
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('✅ Service Worker registered with scope:', registration.scope);
       })
-      .catch(err => {
-        console.error('❌ Service Worker registration failed:', err);
+      .catch((error) => {
+        console.error('❌ Service Worker registration failed:', error);
       });
   });
 }
 
-
-
-
-// Spinner Loader
-window.addEventListener("load", () => {
-    const loader = document.querySelector(".spinner-container");
-    loader.style.opacity = "0";
-    loader.style.visibility = "hidden";
-  });
-  
-// ===== Pill Navigation Active Indicator =====
-
-// Get the current page filename (e.g., "index.html")
-const currentPath = window.location.pathname.split("/").pop();
-const fullURL = window.location.href;
-
-// Map filenames to corresponding input IDs
-const navMap = {
-  "index.html": "nav-home",
-  "ol.html": "nav-al1",
-  "al.html": "nav-al2",
-  "pastpapers.html": "nav-papers",
-  "": "nav-home",  // For root domain without filename
-};
-
-// Special case: external portfolio link (detect if URL contains "gishan-portfolio")
-let activeNavId = navMap[currentPath] || "nav-home";
-if (fullURL.includes("gishan-portfolio")) {
-  activeNavId = "nav-about";
-}
-
-// Programmatically check the matching radio input
-const activeInput = document.getElementById(activeNavId);
-if (activeInput) {
-  activeInput.checked = true;
-}
-
-// ===== Handle clicking nav labels (redirect) =====
-const navLabels = document.querySelectorAll(".pill-radio-container label");
-navLabels.forEach(label => {
-  label.addEventListener("click", () => {
-    const link = label.getAttribute("data-link");
-    if (link) window.location.href = link;
-  });
+// Spinner Loader fade-out
+window.addEventListener('load', () => {
+  const loader = document.querySelector('.spinner-container');
+  if (loader) {
+    loader.classList.add('is-hidden');
+  }
 });
 
-  
-  // Live Time Clock
-  function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
-    document.getElementById("live-time").textContent = timeString;
+// Live time clock
+function updateTime() {
+  const now = new Date();
+  const timeElement = document.getElementById('live-time');
+  if (timeElement) {
+    timeElement.textContent = now.toLocaleTimeString('en-GB', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
   }
-  
-  setInterval(updateTime, 1000);
-  updateTime();
-  if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  });
 }
+
+setInterval(updateTime, 1000);
+updateTime();
+
+// Modern navigation (home page)
+(function highlightHomeNav() {
+  const navLinks = document.querySelectorAll('.home-nav__link[data-page]');
+  if (!navLinks.length) return;
+
+  let currentPath = window.location.pathname.split('/').pop();
+  if (!currentPath) {
+    currentPath = 'index.html';
+  }
+
+  navLinks.forEach((link) => {
+    const page = link.getAttribute('data-page');
+    if (page === currentPath) {
+      link.classList.add('is-active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('is-active');
+      link.removeAttribute('aria-current');
+    }
+  });
+})();
+
+// Legacy pill navigation support for secondary pages
+(function initLegacyNav() {
+  const navContainer = document.querySelector('.pill-radio-container');
+  if (!navContainer) return;
+
+  const navMap = {
+    'index.html': 'nav-home',
+    'ol.html': 'nav-al1',
+    'al.html': 'nav-al2',
+    'pastpapers.html': 'nav-papers',
+    '': 'nav-home',
+  };
+
+  const currentPath = window.location.pathname.split('/').pop();
+  const targetId = navMap[currentPath] || 'nav-home';
+  const activeInput = document.getElementById(targetId);
+  if (activeInput) {
+    activeInput.checked = true;
+  }
+
+  const navLabels = navContainer.querySelectorAll('label[data-link]');
+  navLabels.forEach((label) => {
+    label.addEventListener('click', () => {
+      const link = label.getAttribute('data-link');
+      if (link) {
+        window.location.href = link;
+      }
+    });
+  });
+})();
